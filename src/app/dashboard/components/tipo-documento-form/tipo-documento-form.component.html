@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <div class="card card-primary card-outline">
+      <div class="card-header"
+           style="display: flex; justify-content: center;">
+        <h3 class="card-title">
+          {{(this.data)?'Editar':'Agregar'}} Tipo de Documento
+        </h3>
+      </div> <!-- /.card-body -->
+      <div class="card-body">
+
+        <div class="contenedor__formulario">
+
+
+            <form [formGroup]="miFormulario" (ngSubmit)="onSubmit()">
+
+            <p>
+                <mat-form-field class="example-full-field">
+                    <mat-label>Código: </mat-label>
+                    <input matInput
+                           formControlName="codigo"  
+                           type="text">
+                </mat-form-field>
+            </p> 
+
+            <p>
+                <mat-form-field class="example-full-field">
+                    <mat-label>Nombre: </mat-label>
+                    <input matInput
+                           formControlName="nombre"  
+                           type="text">
+                </mat-form-field>
+            </p> 
+
+            <p>
+                <mat-form-field class="example-full-field">
+                    <mat-label>Descripción: </mat-label>
+                    <input matInput
+                           formControlName="descripcion"  
+                           type="text">
+                </mat-form-field>
+            </p> 
+
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Seleccione un estado</mat-label>
+                    <mat-select formControlName="estado">
+                      <mat-option *ngFor="let estado of estados" [value]="estado.value">{{estado.texto}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p> 
+        
+        
+            <div class="contenedor__formulario-accion">
+                <button mat-raised-button color="warn"
+                        type="button"
+                        (click)="cerrarModal()">
+                    Cerrar
+                </button>
+                <button mat-raised-button color="primary" 
+                        type="submit"
+                        [disabled]="miFormulario.invalid">
+                    {{(this.data)?'Actualizar':'Agregar'}}
+                </button>
+            </div>
+            </form>
+        
+        
+        </div>
+
+
+      </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+.login-principal {
+    height: 90vh;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-login {
+    background-color: #fff;
+    border-radius: 12px;
+    min-width: 300px;
+    position: relative;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%), 0 0 0 1px rgb(0 0 0 / 4%);
+}
+
+.footer {
+    height: 10vh;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+}
+
+p{
+    font-weight: 300;
+    margin: 0;
+}

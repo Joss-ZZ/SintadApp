@@ -1,0 +1,114 @@
+<div class="container-fluid">
+    <div class="card card-primary card-outline">
+      <div class="card-header"
+           style="display: flex; justify-content: center;">
+        <h3 class="card-title">
+          {{(this.data)?'Editar':'Agregar'}} Contribuyente
+        </h3>
+      </div> <!-- /.card-body -->
+      <div class="card-body">
+
+        <div class="contenedor__formulario">
+
+
+            <form [formGroup]="miFormulario" (ngSubmit)="onSubmit()">
+
+                <div class="grid">
+
+                    <p class="grid__item">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Seleccione un tipo de documento</mat-label>
+                            <mat-select formControlName="tipo_documento">
+                              <mat-option *ngFor="let tipodoc of tipo_documento" [value]="tipodoc._id">{{tipodoc.nombre}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </p>                 
+        
+                    <p class="grid__item">
+                        <mat-form-field class="example-full-field">
+                            <mat-label>Número de documento: </mat-label>
+                            <input matInput
+                                   formControlName="nro_documento"  
+                                   type="text">
+                        </mat-form-field>
+                    </p> 
+        
+                    <p class="grid__item">
+                        <mat-form-field class="example-full-field">
+                            <mat-label>Razón Social: </mat-label>
+                            <input matInput
+                                   formControlName="razon_social"  
+                                   type="text">
+                        </mat-form-field>
+                    </p> 
+        
+                    <p class="grid__item">
+                        <mat-form-field class="example-full-field">
+                            <mat-label>Nombre Comercial: </mat-label>
+                            <input matInput
+                                   formControlName="nombre_comercial"  
+                                   type="text">
+                        </mat-form-field>
+                    </p> 
+        
+                    <p class="grid__item">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Seleccione un tipo de contribuyente</mat-label>
+                            <mat-select formControlName="tipo_contribuyente">
+                              <mat-option *ngFor="let tipocontri of tipo_contribuyente" [value]="tipocontri._id">{{tipocontri.nombre}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </p> 
+        
+                    <p class="grid__item">
+                        <mat-form-field class="example-full-field">
+                            <mat-label>Dirección: </mat-label>
+                            <input matInput
+                                   formControlName="direccion"  
+                                   type="text">
+                        </mat-form-field>
+                    </p> 
+        
+                    <p class="grid__item">
+                        <mat-form-field class="example-full-field">
+                            <mat-label>Teléfono: </mat-label>
+                            <input matInput
+                                   formControlName="telefono"  
+                                   type="text">
+                        </mat-form-field>
+                    </p> 
+        
+                    <p class="grid__item">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Seleccione un estado</mat-label>
+                            <mat-select formControlName="estado">
+                              <mat-option *ngFor="let estado of estados" [value]="estado.value">{{estado.texto}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </p> 
+
+                </div>
+
+        
+        
+                <div class="contenedor__formulario-accion">
+                    <button mat-raised-button color="warn"
+                            type="button"
+                            (click)="cerrarModal()">
+                        Cerrar
+                    </button>
+                    <button mat-raised-button color="primary" 
+                            type="submit"
+                            [disabled]="miFormulario.invalid">
+                        {{(this.data)?'Actualizar':'Agregar'}}
+                    </button>
+                </div>
+            </form>
+        
+        
+        </div>
+
+
+      </div>
+    </div>
+</div>
